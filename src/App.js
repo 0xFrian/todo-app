@@ -11,10 +11,11 @@ const FILTER_MAP = {
   Completed: task => task.completed   
 };
 const FILTER_NAMES = Object.keys(FILTER_MAP); 
+let renderCount = 0; 
 
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);  
-  const [filter, setFilter] = useState("All");     
+  const [filter, setFilter] = useState("All");    
 
   function addTask(name) {
     console.log(`Adding task: "${name}"`);                                 
@@ -92,6 +93,11 @@ function App(props) {
   
   const tasksNoun = taskList.length !== 1 ? "tasks" : "task"; 
   const headingText = `${taskList.length} ${tasksNoun} remaining`;
+
+  console.log("Render Count: ", renderCount);
+  useEffect(() => {
+    renderCount++;
+  });
 
   return (
     <div className="todoapp stack-large">
