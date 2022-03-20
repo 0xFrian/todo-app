@@ -3,8 +3,8 @@ import React, { useState } from "react";
 function Form(props) {
     const [name, setName] = useState("");
 
-    function handleSubmit(e) {
-        e.preventDefault(); 
+    function handleSubmit(event) {
+        event.preventDefault(); 
         props.onSubmit(name); 
         setName("");
         const inputElement = document.querySelector("input");

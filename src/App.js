@@ -83,7 +83,6 @@ function App(props) {
 
   const listHeadingRef = useRef(null);
   const prevTaskLength = usePrevious(tasks.length);   
-  
   useEffect(() => {
     if (tasks.length < prevTaskLength) { 
       let listHeadingNode = listHeadingRef.current; 
